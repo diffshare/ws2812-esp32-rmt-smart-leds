@@ -12,12 +12,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: mv rust-toolchain.toml rust-toolchain.toml.bak
     - name: Install Rust for Xtensa
       uses: esp-rs/xtensa-toolchain@v1
       with:
         default: false
         version: "1.57.0.2"
         ldproxy: true
+    - run: mv rust-toolchain.toml rust-toolchain.toml.bak
     - name: Build
       run: cargo build --verbose
     - name: Run tests
