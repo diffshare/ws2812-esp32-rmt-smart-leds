@@ -12,12 +12,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      - name: Install Rust for Xtensa
-        uses: esp-rs/xtensa-toolchain@v1
-        with:
-          default: true
-          #version: "1.57.0.2"
-          ldproxy: true
+    - name: Install Rust for Xtensa
+      uses: esp-rs/xtensa-toolchain@v1
+      with:
+        default: true
+        #version: "1.57.0.2"
+        ldproxy: true
     - name: Build
       run: cargo build --verbose
     - name: Run tests
